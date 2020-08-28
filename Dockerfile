@@ -2,7 +2,9 @@ FROM appsvcorg/nginx-fpm:php7.2.11
 
 WORKDIR "/home/site/wwwroot"       
 
-COPY env.php /home/site/wwwroot/
+COPY env.php show_env.php /home/site/wwwroot/
+
+COPY react/build /home/site/wwwroot/
 
 # nginx
 COPY nginx.conf /etc/nginx/nginx.conf

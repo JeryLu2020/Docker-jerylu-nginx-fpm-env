@@ -1,16 +1,20 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+header("Access-Control-Allow-Headers: Content-Disposition, Content-Type, Content-Length, Accept-Encoding");
+header("Content-type:application/json");
+$data = json_decode(file_get_contents("php://input"));
 
-echo "HOSTNAME: ";
-var_dump(getenv('HOSTNAME'));
-echo "<br>";
+$hostname = getenv('HOSTNAME');
+$react_env = getenv('REACT_APP_TEST_ENV');
 
-echo "HELLO: ";
-var_dump(getenv('HELLO'));
-echo "<br>";
 
-echo "WORLD: ";
-var_dump(getenv('WORLD'));
-echo "<br>";
+// php get all env values
 
-echo "REACT_APP_TEST_ENV: ";
-var_dump(getenv('REACT_APP_TEST_ENV'));
+// combine all the values
+
+echo getenv('REACT_APP_TEST_ENV');
+
+// echo $hostname + $react_env;
+
+print_r($data);
